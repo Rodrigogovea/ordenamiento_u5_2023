@@ -6,7 +6,7 @@ public class metodos_ordenamientos
     private int tamanio;
     private int pasadas; 
     private int particion;
-    public int[] burbuja(int[] arreglo)
+    public int[] burbuja(int[] arreglo)//método de la burbuja
     {
         ordenado = false;
         tamanio = arreglo.length;
@@ -30,7 +30,7 @@ public class metodos_ordenamientos
         return arreglo;
     }
     
-    public int[] rapido(int[] arreglo, int l,int h)
+    public int[] rapido(int[] arreglo, int l,int h)//método quicksort
     {
         if(l<h)//caso base de la recursividad
         {
@@ -61,6 +61,29 @@ public class metodos_ordenamientos
         theArray[i] = theArray[u];
         theArray[u] = aux;
         return(i);
+    }
+
+    public int[] ordenarShell(int []arreglo)
+    {
+        int tamanio = arreglo.length;
+        int espacio = tamanio/2;
+        int posicion;
+        while(espacio>0)
+        {
+            for(int i = espacio; i<tamanio; i++)
+            {
+                aux = arreglo[i];
+                posicion = i;
+                while(posicion>=espacio && arreglo[posicion-espacio] > aux)
+                {
+                    arreglo[posicion] = arreglo[posicion-espacio];
+                    posicion-=espacio;
+                }
+                arreglo[posicion] = aux;
+            }
+            espacio = espacio/2;
+        }
+        return arreglo;
     }
     
     public void imprimir(int[] arreglo)

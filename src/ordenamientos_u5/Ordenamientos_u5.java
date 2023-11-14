@@ -12,7 +12,9 @@ public class Ordenamientos_u5
         System.out.println("");
         //miArreglo = metodos.burbuja(miArreglo);
         
-        miArreglo = metodos.rapido(miArreglo, 0,miArreglo.length-1);
+        //miArreglo = metodos.rapido(miArreglo, 0,miArreglo.length-1);
+
+        miArreglo = metodos.ordenarShell(miArreglo);
         
         System.out.println("Arreglo ordenado: ");
         metodos.imprimir(miArreglo);
